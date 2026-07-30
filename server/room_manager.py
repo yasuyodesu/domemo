@@ -39,8 +39,7 @@ class 部屋管理者:
         self.全部屋: Dict[str, 部屋] = {}
 
     def 部屋作成(self, 人数: int) -> 部屋:
-        # 4桁のランダムな部屋コード（例: A1B2）
-        部屋コード = int("".join([random.randrange(10) for i in range(4)]))
+        部屋コード = random.randint(1000, 9999)
         新部屋 = 部屋(部屋コード, 人数)
         self.全部屋[部屋コード] = 新部屋
         return 新部屋
