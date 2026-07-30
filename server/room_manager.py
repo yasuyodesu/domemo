@@ -39,7 +39,7 @@ class 部屋管理者:
 
     def 部屋作成(self, 人数: int) -> 部屋:
         # 4桁のランダムな部屋コード（例: A1B2）
-        部屋コード = str(uuid.uuid4())[:4].upper()
+        部屋コード = "".join([random.randrange(10) for i in range(4)])
         新部屋 = 部屋(部屋コード, 人数)
         self.全部屋[部屋コード] = 新部屋
         return 新部屋
