@@ -1,0 +1,104 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 { text-align: center; color: #2c3e50; }
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.hidden { display: none !important; }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+input, select { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 5px; }
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover { background-color: #2980b9; }
+
+.highlight { color: #e74c3c; font-size: 24px; }
+.sub-text { font-size: 12px; color: #7f8c8d; }
+
+/* ゲーム画面の装飾 */
+.turn-box {
+    font-weight: bold;
+    padding: 8px;
+    background-color: #f39c12;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.hands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.player-hand-box {
+    border: 2px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.player-hand-box.active-turn {
+    border-color: #e67e22;
+    background-color: #fff3e0;
+}
+
+.tile-badge {
+    display: inline-block;
+    background-color: #34495e;
+    color: white;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.tile-badge.secret {
+    background-color: #95a5a6;
+}
+
+.number-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.num-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #2ecc71;
+}
+.num-btn:hover { background-color: #27ae60; }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オンライン DOMEMO</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 オンライン DOMEMO（ドメモ）</h1>
+
+        <!-- ロビー画面（部屋作成・参加） -->
+        <div id="lobby-screen" class="card">
+            <h2>ロビー</h2>
+            <div class="form-group">
+                <label>プレイヤー名:</label>
+                <input type="text" id="player-name" value="プレイヤー1" placeholder="名前を入力">
+            </div>
+            <div class="form-group">
+                <label>部屋コード（新規作成なら空欄でOK）:</label>
+                <input type="text" id="room-code-input" placeholder="例: A1B2">
+            </div>
+            <div class="form-group">
+                <label>プレイ人数（部屋を新しく作る場合のみ）:</label>
+                <select id="player-count">
+                    <option value="2">2人プレイ</option>
+                    <option value="3" selected>3人プレイ</option>
+                    <option value="4">4人プレイ</option>
+                    <option value="5">5人プレイ</option>
+                </select>
+            </div>
+            <button id="join-btn" onclick="joinGame()">ゲームに参加 / 部屋作成</button>
+        </div>
+
+        <!-- 待機画面 -->
+        <div id="waiting-screen" class="card hidden">
+            <h2>メンバー待機中...</h2>
+            <p>部屋コード: <strong id="display-room-code" class="highlight">---</strong></p>
+            <p class="sub-text">※友達にこの部屋コードを共有してください！</p>
+            <p>現在の参加人数: <span id="current-members">0</span> / <span id="target-members">0</span> 人</p>
+            <ul id="member-list"></ul>
+        </div>
+
+        <!-- ゲームメイン画面 -->
+        <div id="game-screen" class="hidden">
+            <div class="status-bar card">
+                <div>あなたのID: <strong>プレイヤー <span id="my-player-id"></span></strong> (<span id="my-player-name"></span>)</div>
+                <div id="turn-indicator" class="turn-box">----</div>
+            </div>
+
+            <!-- 場札エリア -->
+            <div class="card">
+                <h3>【場札情報】</h3>
+                <div class="board-area">
+                    <div>公開カード: <span id="open-cards" class="card-list"></span></div>
+                    <div>捨て札（公開済み）: <span id="discarded-cards" class="card-list"></span></div>
+                </div>
+            </div>
+
+            <!-- 全員の手札エリア -->
+            <div class="card">
+                <h3>【みんなの手札】</h3>
+                <div id="hands-container" class="hands-grid"></div>
+            </div>
+
+            <!-- 数字宣言エリア -->
+            <div id="action-area" class="card action-card">
+                <h3>【自分の手札にあると思う数字を宣言】</h3>
+                <div class="number-buttons">
+                    <button class="num-btn" onclick="declareNumber(1)">1</button>
+                    <button class="num-btn" onclick="declareNumber(2)">2</button>
+                    <button class="num-btn" onclick="declareNumber(3)">3</button>
+                    <button class="num-btn" onclick="declareNumber(4)">4</button>
+                    <button class="num-btn" onclick="declareNumber(5)">5</button>
+                    <button class="num-btn" onclick="declareNumber(6)">6</button>
+                    <button class="num-btn" onclick="declareNumber(7)">7</button>
+                </div>
+            </div>
+
+            <!-- 履歴ログ -->
+            <div class="card">
+                <h3>【宣言の履歴】</h3>
+                <ul id="history-log"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
