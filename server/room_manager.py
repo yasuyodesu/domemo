@@ -3,6 +3,7 @@ import uuid
 from typing import Dict, List, Optional
 from fastapi import WebSocket
 from core.game_state import ドメモ進行管理
+import random
 
 class プレイヤー情報:
     def __init__(self, プレイヤーID: int, 名前: str, socket: WebSocket):
